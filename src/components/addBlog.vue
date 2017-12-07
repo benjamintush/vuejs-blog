@@ -19,7 +19,7 @@
       </div>
       <label>Author</label>
       <select v-model="blog.author">
-        <option v-for="author in authors">{{ author }}</option>
+        <option v-for="author in authors" :key="">{{ author }}</option>
       </select>
       <button @click.prevent="post">Add Blog</button>
     </form> 
@@ -33,7 +33,7 @@
       <p>{{ blog.content }}</p>
       <p>Blog Categories</p>
       <ul>
-        <li v-for="category in blog.categories">{{ category }}</li>
+        <li v-for="category in blog.categories" :key="">{{ category }}</li>
       </ul>
       <p> Author: {{ blog.author }}</p>
     </div>   
@@ -95,11 +95,12 @@ h3{
     margin-top: 10px;
 }
 #checkboxes input{
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
 #checkboxes label{
-  display: inline-block ;
+    display: inline-block;
+    margin-top: 0;
 }
 </style>
 

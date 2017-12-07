@@ -1,11 +1,9 @@
 <template>
   <div id="show-blogs">
-    <h1>All Blog Articles</h1>
+    <h1>List Blogs Titles</h1>
     <input type="text" v-model="search" placeholder="search blogs" />
     <div v-for="blog in filteredBlogs" class="single-blog" :key="blog.id">
-      <router-link :to="'/blog/'+blog.id"><h2>{{ blog.title | to-uppercase }}</h2></router-link>
-      <!-- <h2 v-rainbow><router-link to="'/blog/'+{{blog.id}}">{{ blog.title | to-uppercase }}</router-link></h2> -->
-      <article>{{ blog.body | snippet }}</article>
+      <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
     </div>
   </div>
 </template>
@@ -23,6 +21,7 @@
     },
     created () {
       this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function (data) {
+        console.log(data);
         this.blogs = data.body.slice(0,10);
       });
     },
